@@ -5,7 +5,7 @@ import pygame
 pygame.init()
 
 BLACK = (0,0,0)
-WHITE = (255,255,255)
+WHITE = (255,255,255) 
 BLOCK_WIDTH = 30
 WIDTH = 800
 HEIGHT = 600
@@ -15,7 +15,6 @@ POLE_LENGHT = 200
 class cart_pole():
     
     def __init__(self):
-        
         self.window = pygame.display.set_mode((WIDTH,HEIGHT))
         pygame.display.set_caption("Navid's Cart_Pole Balancing AI") #give title
         self.clock = pygame.time.Clock() # for keeping time
