@@ -34,9 +34,6 @@ class cart_pole():
             self.pole_end[0] = 0 +math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]
         self.number_of_games = 0
             
-        
-        
-        
     def play_step(self, action):
         self.number_of_games += 1
         
