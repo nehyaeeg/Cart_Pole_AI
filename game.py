@@ -52,19 +52,19 @@ class cart_pole():
             delta_y = self.pole_end[1] - self.pole_begin[1]
             if delta_x ==0:
                 reward = 10
-                self.pole_end[1] +=1
+                self.pole_end[1] +=0.5
                 if self.pole_end[1] <= 100:
                     self.pole_end[1] = 100
                 self.pole_end[0] = 0 -math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]
             elif delta_x < 0 :
                 reward = -10
-                self.pole_end[1] += (0.5 + abs(delta_y)//35)
+                self.pole_end[1] += (0.5 + abs(delta_y)//350)
                 if self.pole_end[1] <= 100:
                     self.pole_end[1] = 100
                 self.pole_end[0] = 0 -math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]
             else:
                 reward = 0
-                self.pole_end[1] -= (0.5 + abs(delta_y)//35)
+                self.pole_end[1] -= (0.5 + abs(delta_y)//350)
                 if self.pole_end[1] <= 100:
                     self.pole_end[1] = 100
                 self.pole_end[0] = 0 +math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]
@@ -77,20 +77,20 @@ class cart_pole():
             delta_y = self.pole_end[1] - self.pole_begin[1]         
             if delta_x ==0:
                 reward = 10
-                self.pole_end[1] +=1
+                self.pole_end[1] +=0.5
                 if self.pole_end[1] <= 100:
                     self.pole_end[1] = 100
                 self.pole_end[0] = 0 -math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]               
             elif delta_x > 0 :
                 reward = -10
-                self.pole_end[1] += (0.5 + abs(delta_y)//35)
+                self.pole_end[1] += (0.5 + abs(delta_y)//350)
                 if self.pole_end[1] <= 100:
                     self.pole_end[1] = 100
                 self.pole_end[0] = 0 +math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]
                 
             else:
                 reward = 0
-                self.pole_end[1] -= (0.5 + abs(delta_y)//35)
+                self.pole_end[1] -= (0.5 + abs(delta_y)//350)
                 if self.pole_end[1] <= 100:
                     self.pole_end[1] = 100
                 self.pole_end[0] = 0 -math.sqrt(POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2) + self.pole_begin[0]
@@ -99,16 +99,16 @@ class cart_pole():
         delta_y = self.pole_end[1] - self.pole_begin[1]
         
         if delta_x < 0:
-            self.pole_end[1] += (0.5+ 0.025*abs(delta_x))
+            self.pole_end[1] += (0.15+ 0.0045*abs(delta_x))
             self.pole_end[0] = 0 -math.sqrt((POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2)) + self.pole_begin[0]       
         elif delta_x >0:   
-            self.pole_end[1] += (0.5+ 0.025*abs(delta_x))
+            self.pole_end[1] += (0.15+ 0.0045*abs(delta_x))
             self.pole_end[0] = 0 +math.sqrt((POLE_LENGHT**2 - (self.pole_end[1] - self.pole_begin[1])**2)) + self.pole_begin[0]  
             
         if self.pole_end[1] >= self.y:
             isOver = True
             
-        if self.x >= WIDTH - 2*BLOCK_WIDTH or self.x <= 2*BLOCK_WIDTH or self.number_of_games>50:
+        if self.x >= WIDTH - 2*BLOCK_WIDTH or self.x <= 2*BLOCK_WIDTH or self.number_of_games>200:
             reward = -10
             isOver = True
             
